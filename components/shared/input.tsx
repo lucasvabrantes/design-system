@@ -20,7 +20,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         <div
           className={cn(
-            "flex w-80 items-center justify-between border-2 px-2 rounded bg-background focus-within:border-gray-200",
+            "flex w-80 h-16 items-center justify-between border-2 px-2 rounded bg-background focus-within:border-gray-200",
             "hover:border-orange-500",
             hint ? "border-[1px] border-red-500" : "",
             hint ? "focus-within:border-2 focus-within:border-red-500 " : "",
