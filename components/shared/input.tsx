@@ -19,8 +19,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className={cn(
               "relative w-80 h-6 border-2 flex items-center rounded bg-background focus-within:border-gray-200",
               "hover:border-orange-500",
-              hint ? "outline-[1px] border-red-500" : "",
-              hint ? "focus-within:outline-2 focus-within:border-red-500 " : "",
+              hint ? "border-[1px] border-red-500" : "",
+              hint ? "focus-within:border-2 focus-within:border-red-500 " : "",
               className
             )}
           >
