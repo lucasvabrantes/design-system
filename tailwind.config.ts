@@ -20,6 +20,9 @@ export default {
       borderRadius: {
         DEFAULT: "var(--radius)",
       },
+      borderWidth: {
+        "1": "1px",
+      },
       spacing: {
         "1": "0.5rem",
         "2": "1rem",
