@@ -12,34 +12,39 @@ interface InputProps extends React.ComponentProps<"input"> {
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, label, hint, Icon, ...props }, ref) => {
     return (
-      <div className="">
+      <div>
         <Label htmlFor={props.id}>
           {label && <span>{label}</span>}
           <div
             className={cn(
-              "relative w-80 h-6 border-2 flex items-center rounded bg-background focus-within:border-gray-200",
-              "hover:border-orange-500",
-              hint ? "border-[1px] border-red-500" : "",
-              hint ? "focus-within:border-2 focus-within:border-red-500 " : "",
+              "has-[:disabled]:border-gray-600 has-[:disabled]:hover:outline-transparent relative w-80 h-6 border-1 flex items-center rounded bg-background focus-within:outline outline-gray-200 outline-1",
+              "hover:border-orange-500 hover:outline hover:outline-1 hover:outline-orange-500",
+              "group-disabled:border-transparent",
+              hint ? "border-red-500" : "",
+              hint
+                ? "focus-within:outline outline-red-500 outline-1 focus-within:border-red-500 "
+                : "",
               className
             )}
           >
-            {Icon && <Icon className="text-gray-400 w-2 h-2 absolute left-2" />}
+            {Icon && (
+              <Icon className="text-gray-400 w-2 h-2 absolute left-2 pointer-events-none" />
+            )}
             <input
               type={type}
               className={cn(
-                "bg-background px-[44px] text-base transition-colors placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 disabled:border-gray-500 md:text-sm",
+                "bg-background px-[44px] text-base transition-colors placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
                 className
               )}
               ref={ref}
               {...props}
             />
             {Icon && (
-              <Icon className="text-gray-400 w-2 h-2 absolute right-2" />
+              <Icon className="text-gray-400 w-2 h-2 absolute right-2 pointer-events-none" />
             )}
           </div>
         </Label>
-        {hint && <p className="text-xs mt-[2px]">{hint}</p>}
+        {hint && <p className="text-xs text-red-500 mt-[2px]">{hint}</p>}
       </div>
     );
   }
